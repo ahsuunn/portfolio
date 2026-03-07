@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Schibsted_Grotesk } from "next/font/google";
+import { Schibsted_Grotesk, Geist } from "next/font/google";
 import Providers from "./components/Providers";
 import "./globals.css";
 
@@ -8,6 +8,12 @@ const schibstedGrotesk = Schibsted_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
 });
+
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+})
 
 export const metadata: Metadata = {
   title: "Ahsan Malik Al Farisi — Portfolio",
@@ -22,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${schibstedGrotesk.variable} antialiased`}>
+      <body className={`${schibstedGrotesk.variable} ${geist.variable} antialiased`}>
         <Providers>{children}</Providers>
       </body>
     </html>

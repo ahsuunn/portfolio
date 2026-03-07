@@ -2,7 +2,6 @@ export interface Profile {
   name: string;
   title: string;
   email: string;
-  phone: string;
   linkedin: string;
   github: string;
   bio: string; // raw MDX body rendered to string
@@ -45,4 +44,10 @@ export interface Award {
   event: string;
   date: string;
   description: string;
+}
+
+export interface Research {
+  title: string;
+  coursework: string;
+  url: string;
 }

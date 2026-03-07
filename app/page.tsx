@@ -6,6 +6,7 @@ import ProjectsSection from './components/ProjectsSection';
 import SkillsSection from './components/SkillsSection';
 import EducationSection from './components/EducationSection';
 import AwardsSection from './components/AwardsSection';
+import ResearchSection from './components/ResearchSection';
 import {
   getProfile,
   getExperience,
@@ -13,27 +14,28 @@ import {
   getSkills,
   getEducation,
   getAwards,
+  getResearch,
 } from './lib/cms';
 
 export default async function Portfolio() {
-  const [profile, jobs, projects, skills, education, awards] = await Promise.all([
+  const [profile, jobs, projects, skills, education, awards, research] = await Promise.all([
     getProfile(),
     getExperience(),
     getProjects(),
     getSkills(),
     getEducation(),
     getAwards(),
+    getResearch(),
   ]);
 
   return (
-    <div className="min-h-screen p-6 md:p-12 max-w-[1600px] mx-auto font-sans">
+    <div className="min-h-screen p-6 md:p-12 max-w-7xl mx-auto">
       <Header name={profile.name} title={profile.title} />
 
       <main className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
         <Sidebar
           bio={profile.bio}
           email={profile.email}
-          phone={profile.phone}
           linkedin={profile.linkedin}
           github={profile.github}
         />
@@ -44,12 +46,13 @@ export default async function Portfolio() {
           <SkillsSection skills={skills} />
           <EducationSection education={education} />
           <AwardsSection awards={awards} />
+          <ResearchSection research={research} />
 
-          <footer className="pt-20 pb-32">
-            <div className="h-px w-full bg-black/10 dark:bg-white/20 mb-8" />
+          <footer className="pt-12 pb-32">
+            <div className="h-px w-full bg-black dark:bg-white/20 mb-8" />
             <Link
               href={"mailto:" + profile.email}
-              className="text-4xl md:text-6xl font-medium hover:text-gray-500 dark:hover:text-gray-300 transition-colors"
+              className="text-4xl md:text-6xl font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
             >
               Contact me
             </Link>

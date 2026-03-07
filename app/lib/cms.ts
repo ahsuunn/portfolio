@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import type { Profile, Job, Project, Skills, Education, Award } from './types';
+import type { Profile, Job, Project, Skills, Education, Award, Research } from './types';
 
 const contentDir = path.join(process.cwd(), 'content');
 
@@ -16,7 +16,6 @@ export function getProfile(): Profile {
     name: data.name,
     title: data.title,
     email: data.email,
-    phone: data.phone,
     linkedin: data.linkedin,
     github: data.github,
     bio: content.trim(),
@@ -78,4 +77,9 @@ export function getEducation(): Education {
 export function getAwards(): Award[] {
   const { data } = readMdx(path.join(contentDir, 'awards.mdx'));
   return (data.awards ?? []) as Award[];
+}
+
+export function getResearch(): Research[] {
+  const { data } = readMdx(path.join(contentDir, 'research.mdx'));
+  return (data.research ?? []) as Research[];
 }

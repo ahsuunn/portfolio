@@ -15,7 +15,7 @@ export default function Header({ name, title }: Props) {
         <h1 className="text-2xl md:text-3xl font-medium tracking-tight">
           {firstName} {lastName},
         </h1>
-        <p className="text-2xl md:text-3xl text-gray-500 dark:text-gray-400 font-light">
+        <p className="text-2xl md:text-3xl text-gray-600 dark:text-[#ABABAB] font-light">
           {title}
         </p>
       </div>
