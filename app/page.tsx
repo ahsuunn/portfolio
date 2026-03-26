@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import SectionsTabs from './components/SectionsTabs';
@@ -36,14 +37,16 @@ export default async function Portfolio() {
         />
 
         <div className="lg:col-span-8">
-          <SectionsTabs
-            jobs={jobs}
-            projects={projects}
-            skills={skills}
-            education={education}
-            awards={awards}
-            research={research}
-          />
+          <Suspense fallback={<div className="h-20" />}>
+            <SectionsTabs
+              jobs={jobs}
+              projects={projects}
+              skills={skills}
+              education={education}
+              awards={awards}
+              research={research}
+            />
+          </Suspense>
 
           <footer className="pt-12 pb-32">
             <div className="h-px w-full bg-black dark:bg-white/20 mb-8" />
