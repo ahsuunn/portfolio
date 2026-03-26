@@ -1,13 +1,7 @@
 import Link from 'next/link';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
-import ExperienceSection from './components/ExperienceSection';
-import ProjectsSection from './components/ProjectsSection';
-import SkillsSection from './components/SkillsSection';
-import EducationSection from './components/EducationSection';
-import AwardsSection from './components/AwardsSection';
-import ResearchSection from './components/ResearchSection';
-import ScrollReveal from './components/ScrollReveal';
+import SectionsTabs from './components/SectionsTabs';
 import {
   getProfile,
   getExperience,
@@ -41,13 +35,15 @@ export default async function Portfolio() {
           github={profile.github}
         />
 
-        <div className="lg:col-span-8 space-y-20 md:space-y-32">
-          <ScrollReveal><ExperienceSection jobs={jobs} /></ScrollReveal>
-          <ScrollReveal delay={0.05}><ProjectsSection projects={projects} /></ScrollReveal>
-          <ScrollReveal delay={0.05}><SkillsSection skills={skills} /></ScrollReveal>
-          <ScrollReveal delay={0.05}><EducationSection education={education} /></ScrollReveal>
-          <ScrollReveal delay={0.05}><AwardsSection awards={awards} /></ScrollReveal>
-          <ScrollReveal delay={0.05}><ResearchSection research={research} /></ScrollReveal>
+        <div className="lg:col-span-8">
+          <SectionsTabs
+            jobs={jobs}
+            projects={projects}
+            skills={skills}
+            education={education}
+            awards={awards}
+            research={research}
+          />
 
           <footer className="pt-12 pb-32">
             <div className="h-px w-full bg-black dark:bg-white/20 mb-8" />

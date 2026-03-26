@@ -51,3 +51,14 @@ export interface Research {
   coursework: string;
   url: string;
 }
+
+export const sectionTabIds = [
+  'experience',
+  'projects',
+  'skills',
+  'education',
+  'awards',
+  'research',
+] as const;
+
+export type SectionTabId = (typeof sectionTabIds)[number];

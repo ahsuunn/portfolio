@@ -7,10 +7,6 @@ interface Props {
 export default function AwardsSection({ awards }: Props) {
   return (
     <section>
-      <div className="h-px w-full bg-black dark:bg-white/20 mb-8" />
-      <h2 className="text-sm font-medium  tracking-wider text-gray-700 dark:text-[#ABABAB] mb-12">
-        Honors &amp; Awards
-      </h2>
 
       <div className="space-y-10">
         {awards.map((award) => (

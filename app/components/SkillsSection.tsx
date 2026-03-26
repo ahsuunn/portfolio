@@ -35,9 +35,6 @@ export default function SkillsSection({ skills }: Props) {
   return (
     <section>
       <div className="h-px w-full bg-black dark:bg-white/20 mb-8" />
-      <h2 className="text-sm font-medium tracking-wider text-black dark:text-white mb-8">
-        Skills
-      </h2>
 
       {/* Hard Skills — icon grid */}
       <div className="mb-14">

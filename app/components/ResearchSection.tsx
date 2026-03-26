@@ -8,11 +8,6 @@ interface Props {
 export default function ResearchSection({ research }: Props) {
   return (
     <section>
-      <div className="h-px w-full bg-black dark:bg-white/20 mb-8" />
-      <h2 className="text-sm font-medium tracking-wider text-gray-700 dark:text-[#ABABAB] mb-12">
-        Research
-      </h2>
-
       <div className="space-y-10">
         {research.map((paper) => (
           <div key={paper.url} className="grid grid-cols-1 gap-8">

@@ -7,15 +7,9 @@ interface Props {
 export default function ExperienceSection({ jobs }: Props) {
   return (
     <section>
-      <div className="h-px w-full bg-black dark:bg-white/20 mb-8" />
-      <h2 className="text-sm font-medium tracking-wider text-gray-600 dark:text-white mb-8">
-        Experience
-      </h2>
-
       <div className="space-y-14">
         {jobs.map((job) => (
           <div key={`${job.company}-${job.period}`}>
-            <div className="h-px w-full bg-black dark:bg-[#383838] mb-5" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-md font-medium mb-3">{job.role}</h3>
