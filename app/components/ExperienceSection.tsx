@@ -6,12 +6,12 @@ interface Props {
 
 export default function ExperienceSection({ jobs }: Props) {
   return (
-    <section>
+    <section className="section-content">
       <div className="space-y-14">
         {jobs.map((job) => (
           <div key={`${job.company}-${job.period}`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              <div className="min-w-0">
                 <h3 className="text-md font-medium mb-3">{job.role}</h3>
                 <div className="text-gray-600 dark:text-[#ABABAB] text-md space-y-1 mb-4">
                   <p>{job.company}</p>
@@ -19,7 +19,7 @@ export default function ExperienceSection({ jobs }: Props) {
                   <p>{job.location}</p>
                 </div>
               </div>
-              <ul className="space-y-4 text-black dark:text-white text-sm md:text-[15px] leading-relaxed list-disc pl-4 marker:text-black dark:marker:text-white">
+              <ul className="min-w-0 space-y-4 text-black dark:text-white text-sm md:text-[15px] leading-relaxed list-disc pl-4 marker:text-black dark:marker:text-white">
                 {job.highlights.map((h, i) => (
                   <li key={i}>{h}</li>
                 ))}

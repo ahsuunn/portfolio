@@ -7,11 +7,11 @@ interface Props {
 
 export default function ResearchSection({ research }: Props) {
   return (
-    <section>
+    <section className="section-content">
       <div className="space-y-10">
         {research.map((paper) => (
-          <div key={paper.url} className="grid grid-cols-1 gap-8">
-            <div>
+          <div key={paper.url} className="grid grid-cols-1 gap-6 sm:gap-8">
+            <div className="min-w-0">
             <a
               href={paper.url}
               target="_blank"

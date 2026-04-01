@@ -35,3 +35,16 @@ body {
 li{
   font-family: var(--font-geist), Arial, Helvetica, sans-serif;
 }
+
+.section-content {
+  width: 100%;
+}
+
+.section-content p,
+.section-content li,
+.section-content a,
+.section-content h3,
+.section-content span {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}

@@ -12,7 +12,7 @@ export default function Sidebar({ bio, email, linkedin, github }: Props) {
   ];
 
   return (
-    <aside className="lg:col-span-4 space-y-12 md:space-y-24 lg:sticky lg:top-32 lg:self-start">
+    <aside className="lg:col-span-4 min-w-0 space-y-12 md:space-y-24 lg:sticky lg:top-32 lg:self-start">
       <div className="space-y-8">
         <div className="h-px w-full bg-black dark:bg-white/20 mb-8" />
         <p className="text-sm md:text-[15px] leading-relaxed text-black dark:text-white">

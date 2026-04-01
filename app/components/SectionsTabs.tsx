@@ -78,10 +78,10 @@ export default function SectionsTabs({ jobs, projects, skills, education, awards
 
   return (
     <div>
-      <div className="sticky top-0  z-20 -mx-2 px-2 pb-4 mb-8 bg-white dark:bg-black">
-        <div className="overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+      <div className="sticky top-0 z-20 w-full pb-4 mb-8 bg-white dark:bg-black">
+        <div className="w-full overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           <div
-            className="inline-flex min-w-max items-center gap-3 border-b border-black/20 dark:border-white/20 pb-1"
+            className="inline-flex w-max min-w-full items-center gap-2 sm:gap-3 border-b border-black/20 dark:border-white/20"
             role="tablist"
             aria-label="Portfolio sections"
           >
@@ -96,7 +96,7 @@ export default function SectionsTabs({ jobs, projects, skills, education, awards
                   aria-selected={selected}
                   aria-controls={`panel-${tabId}`}
                   onClick={() => handleTabChange(tabId)}
-                  className={`shrink-0 px-1 py-2 text-sm tracking-wide transition-colors duration-200 border-b ${
+                  className={`shrink-0 px-1 sm:px-1.5 py-2 text-sm tracking-wide transition-colors duration-200 border-b ${
                     selected
                       ? 'text-black dark:text-white border-black dark:border-white'
                       : 'text-gray-600 dark:text-[#ABABAB] border-transparent hover:text-black dark:hover:text-white'

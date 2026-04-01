@@ -52,13 +52,13 @@ function getTechItems(techStack: string): string[] {
 
 export default function ProjectsSection({ projects }: Props) {
   return (
-    <section>
+    <section className="section-content">
       <div className="space-y-16">
         {projects.map((project) => (
           <div key={project.name}>
-          <div  className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-md font-medium mb-3">{project.name}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            <div className="min-w-0">
+              <h3 className="text-md font-medium mb-3 wrap-break-word">{project.name}</h3>
               <div className="text-gray-700 dark:text-[#ABABAB] space-y-1 mb-4">
                 <p className="font-medium text-gray-700 dark:text-[#ABABAB]">{project.role}</p>
                 <p>{project.period}</p>
@@ -70,7 +70,7 @@ export default function ProjectsSection({ projects }: Props) {
                       return (
                         <span
                           key={tech}
-                          className="inline-flex items-center gap-1.5 rounded-md border border-gray-200 dark:border-white/20 px-2 py-1 text-[11px] text-gray-700 dark:text-[#ABABAB]"
+                          className="max-w-full inline-flex items-center gap-1.5 rounded-md border border-gray-200 dark:border-white/20 px-2 py-1 text-[11px] text-gray-700 dark:text-[#ABABAB] whitespace-normal wrap-break-word"
                         >
                           <Icon size={12} className="text-black dark:text-white" />
                           {tech}
@@ -81,7 +81,7 @@ export default function ProjectsSection({ projects }: Props) {
                 )}
               </div>
             </div>
-            <ul className="space-y-4 text-black dark:text-white text-sm md:text-[15px] leading-relaxed list-disc pl-4 marker:text-black dark:marker:text-white">
+            <ul className="min-w-0 space-y-4 text-black dark:text-white text-sm md:text-[15px] leading-relaxed list-disc pl-4 marker:text-black dark:marker:text-white">
               {project.highlights.map((h, i) => (
                 <li key={i}>{h}</li>
               ))}
