@@ -16,7 +16,7 @@ const geist = Geist({
 })
 
 export const metadata: Metadata = {
-  title: "Ahsan Malik Al Farisi — Portfolio",
+  title: "Ahsan Malik Al Farisi - Portfolio",
   description:
     "Software Engineering student at ITB. Frontend & mobile developer specializing in Next.js and Flutter.",
 };

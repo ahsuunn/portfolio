@@ -34,8 +34,6 @@ const hardSkillIcons: Record<string, IconType> = {
 export default function SkillsSection({ skills }: Props) {
   return (
     <section>
-      <div className="h-px w-full bg-black dark:bg-white/20 mb-8" />
-
       {/* Hard Skills — icon grid */}
       <div className="mb-14">
         <h3 className="text-gray-600 dark:text-[#ABABAB] text-md tracking-wide mb-8">
