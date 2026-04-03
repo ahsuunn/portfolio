@@ -78,7 +78,7 @@ export default function SectionsTabs({ jobs, projects, skills, education, awards
 
   return (
     <div>
-      <div className="sticky top-0 z-20 w-full pb-4 mb-8 bg-white dark:bg-black">
+      <div className="sticky top-0 z-20 w-full pt-4 lg:pt-0 mb-8 bg-white dark:bg-black">
         <div className="w-full overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           <div
             className="inline-flex w-max min-w-full items-center gap-2 sm:gap-3 border-b border-black/20 dark:border-white/20"

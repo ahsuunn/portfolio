@@ -10,7 +10,7 @@ export default function AwardsSection({ awards }: Props) {
 
       <div className="space-y-10">
         {awards.map((award) => (
-          <div key={`${award.title}-${award.date}`} className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div key={`${award.title}-${award.date}`} className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-0 md:gap-x-8">
             <div className="min-w-0">
               <h3 className="text-[15px] font-medium mb-1">{award.title}</h3>
               <p className="text-gray-600 dark:text-[#ABABAB] text-sm">{award.event}</p>

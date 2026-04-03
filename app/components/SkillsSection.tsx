@@ -55,7 +55,7 @@ export default function SkillsSection({ skills }: Props) {
       </div>
 
       {/* Soft Skills + Languages — bullet lists */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-0 md:gap-x-8">
         {([
           { key: 'softSkills' as const, label: 'Soft Skills' },
           { key: 'languages' as const, label: 'Languages' },

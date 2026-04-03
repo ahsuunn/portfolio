@@ -25,10 +25,11 @@ export default async function Portfolio() {
   ]);
 
   return (
-    <div className="min-h-screen overflow-x-hidden p-4 sm:p-6 md:p-10 lg:p-12 max-w-7xl mx-auto">
+    <div className="min-h-screen p-4 sm:p-6 md:p-10 lg:p-12 max-w-7xl mx-auto">
       <Header name={profile.name} title={profile.title} />
 
-      <main className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 md:gap-14 lg:gap-24">
+      <main className="grid grid-cols-1 lg:grid-cols-9 gap-8 sm:gap-10 md:gap-14 lg:gap-24">
+        
         <Sidebar
           bio={profile.bio}
           email={profile.email}
@@ -36,7 +37,7 @@ export default async function Portfolio() {
           github={profile.github}
         />
 
-        <div className="lg:col-span-8 min-w-0">
+        <div className="lg:col-span-6 min-w-0">
           <Suspense fallback={<div className="h-20" />}>
             <SectionsTabs
               jobs={jobs}
