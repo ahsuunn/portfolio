@@ -95,7 +95,7 @@ export default function CommandPalette() {
       subtitle: 'ParagonCorp, KM ITB, Lab Assistant',
       category: 'Navigation',
       icon: Briefcase,
-      shortcut: 'GE',
+      shortcut: isMac ? '⌥1' : 'Alt 1',
       perform: () => navigateToSection('experience'),
     },
     {
@@ -104,7 +104,7 @@ export default function CommandPalette() {
       subtitle: 'Pharmanova, Sahabat Karir, GEMMA',
       category: 'Navigation',
       icon: FolderGit2,
-      shortcut: 'GP',
+      shortcut: isMac ? '⌥2' : 'Alt 2',
       perform: () => navigateToSection('projects'),
     },
     {
@@ -113,7 +113,7 @@ export default function CommandPalette() {
       subtitle: 'Next.js, Python, PyTorch, Flutter',
       category: 'Navigation',
       icon: Cpu,
-      shortcut: 'GS',
+      shortcut: isMac ? '⌥3' : 'Alt 3',
       perform: () => navigateToSection('skills'),
     },
     {
@@ -122,7 +122,7 @@ export default function CommandPalette() {
       subtitle: 'Chung-Ang Univ (CAU) & ITB',
       category: 'Navigation',
       icon: GraduationCap,
-      shortcut: 'GD',
+      shortcut: isMac ? '⌥4' : 'Alt 4',
       perform: () => navigateToSection('education'),
     },
     {
@@ -131,7 +131,7 @@ export default function CommandPalette() {
       subtitle: 'Global FinTech Scholar, Innovest 1st',
       category: 'Navigation',
       icon: Trophy,
-      shortcut: 'GA',
+      shortcut: isMac ? '⌥5' : 'Alt 5',
       perform: () => navigateToSection('awards'),
     },
     {
@@ -140,7 +140,7 @@ export default function CommandPalette() {
       subtitle: 'Academic papers & algorithms',
       category: 'Navigation',
       icon: BookOpen,
-      shortcut: 'GR',
+      shortcut: isMac ? '⌥6' : 'Alt 6',
       perform: () => navigateToSection('research'),
     },
     {
