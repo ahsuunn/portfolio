@@ -1,3 +1,4 @@
+import HeaderStatus from './HeaderStatus';
 import ThemeToggle from './ThemeToggle';
 
 interface Props {
@@ -10,7 +11,7 @@ export default function Header({ name, title }: Props) {
   const lastName = rest.join(' ');
 
   return (
-    <header className="flex justify-between items-start mb-20 md:mb-32">
+    <header className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-16 md:mb-24">
       <div>
         <h1 className="text-2xl md:text-3xl font-medium tracking-tight">
           {firstName} {lastName},
@@ -19,7 +20,7 @@ export default function Header({ name, title }: Props) {
           {title}
         </p>
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3 sm:gap-4 self-end sm:self-start">
         <ThemeToggle />
       </div>
     </header>

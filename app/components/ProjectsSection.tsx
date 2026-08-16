@@ -101,9 +101,9 @@ export default function ProjectsSection({ projects }: Props) {
                       return (
                         <span
                           key={tech}
-                          className="max-w-full inline-flex items-center gap-1.5 rounded-md border border-gray-200 dark:border-white/20 px-2 py-1 text-[11px] text-gray-700 dark:text-[#ABABAB] whitespace-normal wrap-break-word"
+                          className="max-w-full inline-flex items-center gap-1.5 rounded-md border border-black/8 dark:border-white/15 px-2 py-1 text-[11px] text-gray-700 dark:text-[#ABABAB] bg-black/[0.01] dark:bg-white/[0.02] hover:border-black/30 dark:hover:border-white/40 hover:bg-black/[0.03] dark:hover:bg-white/[0.06] hover:text-black dark:hover:text-white transition-all whitespace-normal wrap-break-word font-medium"
                         >
-                          <Icon size={12} className="text-black dark:text-white" />
+                          <Icon size={12} className="text-black/80 dark:text-white/80" />
                           {tech}
                         </span>
                       );

@@ -9,6 +9,7 @@ export default function Sidebar({ bio, email, linkedin, github }: Props) {
     { label: "Email", href: `mailto:${email}` },
     { label: 'LinkedIn', href: linkedin },
     { label: 'GitHub', href: github },
+    { label: 'Resume (PDF)', href: '/Ahsan Malik Al Farisi_CV.pdf' },
   ];
 
   return (
@@ -27,12 +28,12 @@ export default function Sidebar({ bio, email, linkedin, github }: Props) {
             <Link
               key={label}
               href={href}
-              target={href.startsWith('http') ? '_blank' : undefined}
-              rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="group flex items-center py-2 gap-1 border-b border-black/8 dark:border-white/10 hover:text-gray-600 dark:hover:text-gray-300"
+              target={href.startsWith('http') || href.endsWith('.pdf') ? '_blank' : undefined}
+              rel={href.startsWith('http') || href.endsWith('.pdf') ? 'noopener noreferrer' : undefined}
+              className="group flex items-center justify-between py-2 border-b border-black/8 dark:border-white/10 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
             >
               <span>{label}</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
             </Link>
           ))}
         </div>

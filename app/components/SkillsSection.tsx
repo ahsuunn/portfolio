@@ -4,7 +4,7 @@ import {
   SiReact, SiFlutter, SiFirebase, SiNodedotjs, SiPrisma,
   SiPostgresql, SiMysql, SiRedis, SiDocker, SiPython, SiGit, SiCplusplus,
   SiPytorch, SiHuggingface, SiOnnx, SiHono, SiDrizzle, SiDart,
-  SiApachekafka, SiReactquery,
+  SiReactquery,
 } from 'react-icons/si';
 import { DiJava } from 'react-icons/di';
 import type { IconType } from 'react-icons';
@@ -37,7 +37,6 @@ const hardSkillIcons: Record<string, IconType> = {
   'C / C++': SiCplusplus,
   'Git': SiGit,
   'TanStack Query': SiReactquery,
-  'Apache Kafka': SiApachekafka,
   'PyTorch': SiPytorch,
   'Hugging Face': SiHuggingface,
   'ONNX Runtime': SiOnnx,
