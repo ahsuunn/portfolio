@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import SectionsTabs from './components/SectionsTabs';
+import CommandPalette from './components/CommandPalette';
 import {
   getProfile,
   getExperience,
@@ -60,6 +61,10 @@ export default async function Portfolio() {
           </footer>
         </div>
       </main>
+
+      <Suspense fallback={null}>
+        <CommandPalette />
+      </Suspense>
     </div>
   );
 }

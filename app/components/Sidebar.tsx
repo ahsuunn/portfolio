@@ -9,7 +9,6 @@ export default function Sidebar({ bio, email, linkedin, github }: Props) {
     { label: "Email", href: `mailto:${email}` },
     { label: 'LinkedIn', href: linkedin },
     { label: 'GitHub', href: github },
-    { label: 'Resume (PDF)', href: '/Ahsan Malik Al Farisi_CV.pdf' },
   ];
 
   return (

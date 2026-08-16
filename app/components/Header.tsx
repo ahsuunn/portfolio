@@ -1,4 +1,4 @@
-import HeaderStatus from './HeaderStatus';
+import CommandPaletteTrigger from './CommandPaletteTrigger';
 import ThemeToggle from './ThemeToggle';
 
 interface Props {
@@ -20,7 +20,8 @@ export default function Header({ name, title }: Props) {
           {title}
         </p>
       </div>
-      <div className="flex items-center gap-3 sm:gap-4 self-end sm:self-start">
+      <div className="flex items-center gap-2.5 sm:gap-3.5 self-end sm:self-start flex-wrap justify-end">
+        <CommandPaletteTrigger />
         <ThemeToggle />
       </div>
     </header>
