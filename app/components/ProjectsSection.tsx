@@ -2,6 +2,7 @@ import type { Project } from '../lib/types';
 import type { IconType } from 'react-icons';
 import { FiCode } from 'react-icons/fi';
 import {
+  SiAndroid,
   SiDocker,
   SiDrizzle,
   SiExpress,
@@ -10,11 +11,16 @@ import {
   SiGooglemaps,
   SiHono,
   SiHuggingface,
+  SiJetpackcompose,
+  SiKotlin,
+  SiLivekit,
   SiMysql,
   SiNextdotjs,
   SiNginx,
   SiNodedotjs,
   SiOnnx,
+  SiOpenapiinitiative,
+  SiOpenstreetmap,
   SiPayloadcms,
   SiPhp,
   SiPostgresql,
@@ -26,6 +32,7 @@ import {
   SiRedis,
   SiResend,
   SiSocketdotio,
+  SiSqlite,
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
@@ -82,6 +89,19 @@ const techStackIcons: Record<string, IconType> = {
   'Supabase S3': SiSupabase,
   Vitest: SiVitest,
   Xendit: SiXendit,
+  Kotlin: SiKotlin,
+  'Android SDK': SiAndroid,
+  Android: SiAndroid,
+  'Jetpack Compose': SiJetpackcompose,
+  'Room DB': SiSqlite,
+  'Room SQLite': SiSqlite,
+  Room: SiSqlite,
+  LiveKit: SiLivekit,
+  OSMDroid: SiOpenstreetmap,
+  WebSockets: SiSocketdotio,
+  'Firebase Cloud Messaging (FCM)': SiFirebase,
+  FCM: SiFirebase,
+  OpenAPI: SiOpenapiinitiative,
 };
 
 function getTechItems(techStack: string): string[] {

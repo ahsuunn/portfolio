@@ -24,34 +24,38 @@ export function getProfile(): Profile {
 
 export function getExperience(): Job[] {
   const dir = path.join(contentDir, 'experience');
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx')).sort();
-  return files.map((file, i) => {
-    const { data } = readMdx(path.join(dir, file));
-    return {
-      order: data.order ?? i,
-      role: data.role,
-      company: data.company,
-      period: data.period,
-      location: data.location,
-      highlights: data.highlights ?? [],
-    } as Job;
-  });
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx'));
+  return files
+    .map((file, i) => {
+      const { data } = readMdx(path.join(dir, file));
+      return {
+        order: data.order ?? i,
+        role: data.role,
+        company: data.company,
+        period: data.period,
+        location: data.location,
+        highlights: data.highlights ?? [],
+      } as Job;
+    })
+    .sort((a, b) => a.order - b.order);
 }
 
 export function getProjects(): Project[] {
   const dir = path.join(contentDir, 'projects');
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx')).sort();
-  return files.map((file, i) => {
-    const { data } = readMdx(path.join(dir, file));
-    return {
-      order: data.order ?? i,
-      name: data.name,
-      role: data.role,
-      period: data.period,
-      techStack: data.techStack ?? '',
-      highlights: data.highlights ?? [],
-    } as Project;
-  });
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx'));
+  return files
+    .map((file, i) => {
+      const { data } = readMdx(path.join(dir, file));
+      return {
+        order: data.order ?? i,
+        name: data.name,
+        role: data.role,
+        period: data.period,
+        techStack: data.techStack ?? '',
+        highlights: data.highlights ?? [],
+      } as Project;
+    })
+    .sort((a, b) => a.order - b.order);
 }
 
 export function getSkills(): Skills {
