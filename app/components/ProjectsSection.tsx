@@ -1,6 +1,11 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
 import type { Project } from '../lib/types';
 import type { IconType } from 'react-icons';
 import { FiCode } from 'react-icons/fi';
+import ProjectLightbox from './ProjectLightbox';
 import {
   SiAndroid,
   SiDocker,
@@ -112,19 +117,29 @@ function getTechItems(techStack: string): string[] {
 }
 
 export default function ProjectsSection({ projects }: Props) {
+  const [lightbox, setLightbox] = useState<{
+    name: string;
+    images: string[];
+    index: number;
+  } | null>(null);
+
   return (
     <section className="section-content">
       <div className="space-y-16">
         {projects.map((project) => (
           <div key={project.name}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-0 md:gap-x-8">
-            <div className="min-w-0">
-              <h3 className="text-md font-medium mb-3 wrap-break-word">{project.name}</h3>
-              <div className="text-gray-700 dark:text-[#ABABAB] space-y-1">
-                <p className="font-medium text-gray-700 dark:text-[#ABABAB]">{project.role}</p>
-                <p>{project.period}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-y-0 md:gap-x-8 items-start">
+              <div className="min-w-0 space-y-3">
+                <div>
+                  <h3 className="text-md font-medium mb-1 wrap-break-word">{project.name}</h3>
+                  <div className="text-gray-700 dark:text-[#ABABAB] space-y-1">
+                    <p className="font-medium text-gray-700 dark:text-[#ABABAB]">{project.role}</p>
+                    <p>{project.period}</p>
+                  </div>
+                </div>
+
                 {project.techStack && (
-                  <div className="flex flex-wrap gap-2 pt-1">
+                  <div className="flex flex-wrap gap-2 pt-0.5">
                     {getTechItems(project.techStack).map((tech) => {
                       const Icon = techStackIcons[tech] ?? FiCode;
 
@@ -140,17 +155,54 @@ export default function ProjectsSection({ projects }: Props) {
                     })}
                   </div>
                 )}
+
+                {project.images && project.images.length > 0 && (
+                  <div className="pt-2">
+                    <div
+                      onClick={() =>
+                        setLightbox({
+                          name: project.name,
+                          images: project.images!,
+                          index: 0,
+                        })
+                      }
+                      className="relative aspect-video w-full rounded-lg overflow-hidden border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] group cursor-pointer shadow-xs"
+                    >
+                      <Image
+                        src={project.images[0]}
+                        alt={`${project.name} preview`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 400px"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      {project.images.length > 1 && (
+                        <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded text-[10px] font-medium bg-black/75 text-white border border-white/20">
+                          +{project.images.length - 1} more
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-            <ul className="min-w-0 space-y-2 text-black dark:text-white text-sm md:text-[15px] leading-relaxed list-disc pl-4 marker:text-black dark:marker:text-white">
-              {project.highlights.map((h, i) => (
-                <li key={i}>{h}</li>
-              ))}
-            </ul>
+
+              <ul className="min-w-0 space-y-2 text-black dark:text-white text-sm md:text-[15px] leading-relaxed list-disc pl-4 marker:text-black dark:marker:text-white">
+                {project.highlights.map((h, i) => (
+                  <li key={i}>{h}</li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
       </div>
+
+      {lightbox && (
+        <ProjectLightbox
+          projectName={lightbox.name}
+          images={lightbox.images}
+          initialIndex={lightbox.index}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </section>
   );
 }

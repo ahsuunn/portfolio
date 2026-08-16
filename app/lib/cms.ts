@@ -53,6 +53,7 @@ export function getProjects(): Project[] {
         period: data.period,
         techStack: data.techStack ?? '',
         highlights: data.highlights ?? [],
+        images: data.images ?? [],
       } as Project;
     })
     .sort((a, b) => a.order - b.order);

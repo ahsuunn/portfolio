@@ -23,6 +23,7 @@ export interface Project {
   period: string;
   techStack: string;
   highlights: string[];
+  images?: string[];
 }
 
 export interface Skills {
