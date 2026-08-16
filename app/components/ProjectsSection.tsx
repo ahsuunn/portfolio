@@ -15,6 +15,7 @@ import {
   SiNginx,
   SiNodedotjs,
   SiOnnx,
+  SiPayloadcms,
   SiPhp,
   SiPostgresql,
   SiPrisma,
@@ -25,8 +26,11 @@ import {
   SiRedis,
   SiResend,
   SiSocketdotio,
+  SiSupabase,
   SiTailwindcss,
   SiTypescript,
+  SiVitest,
+  SiXendit,
   SiZod,
 } from 'react-icons/si';
 
@@ -72,6 +76,12 @@ const techStackIcons: Record<string, IconType> = {
   Resend: SiResend,
   'Google Maps API': SiGooglemaps,
   'Google Maps': SiGooglemaps,
+  'Payload CMS': SiPayloadcms,
+  Payload: SiPayloadcms,
+  Supabase: SiSupabase,
+  'Supabase S3': SiSupabase,
+  Vitest: SiVitest,
+  Xendit: SiXendit,
 };
 
 function getTechItems(techStack: string): string[] {
