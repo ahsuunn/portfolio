@@ -63,15 +63,21 @@ export function getSkills(): Skills {
   };
 }
 
-export function getEducation(): Education {
+export function getEducation(): Education[] {
   const { data } = readMdx(path.join(contentDir, 'education.mdx'));
-  return {
-    institution: data.institution,
-    location: data.location,
-    degree: data.degree,
-    gpa: data.gpa,
-    period: data.period,
-  };
+  if (data.education && Array.isArray(data.education)) {
+    return data.education as Education[];
+  }
+  return [
+    {
+      institution: data.institution,
+      location: data.location,
+      degree: data.degree,
+      gpa: data.gpa,
+      period: data.period,
+      details: data.details,
+    },
+  ];
 }
 
 export function getAwards(): Award[] {

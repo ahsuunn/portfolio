@@ -35,8 +35,9 @@ export interface Education {
   institution: string;
   location: string;
   degree: string;
-  gpa: string;
+  gpa?: string;
   period: string;
+  details?: string[];
 }
 
 export interface Award {

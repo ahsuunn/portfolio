@@ -1,0 +1,11 @@
+---
+order: 3
+name: GEMMA (Gerbang Evaluasi dan Monitoring Mitigasi Bencana)
+role: Machine Learning Engineer
+period: Apr 2026
+techStack: Python, PyTorch, Hugging Face, ONNX Runtime
+highlights:
+  - Developed a multi-task Indonesian disaster-intelligence NLP pipeline combining tweet-level crisis/assistance classification with token-level entity extraction in a single shared-backbone model.
+  - Engineered an end-to-end data pipeline that reconstructs token annotations into supervised training sets, performs deterministic stratified train/validation/test splitting with zero-leakage checks, and builds a 56K-task-adaptive pretraining corpus from disaster-domain tweets.
+  - Optimized deployment readiness by exporting and verifying dual-head ONNX models (FP32, FP16), calibrating per-label decision thresholds, and building batch, stream, and stress test suites to validate latency, throughput, and inference stability.
+---

@@ -24,7 +24,7 @@ interface Props {
   jobs: Job[];
   projects: Project[];
   skills: Skills;
-  education: Education;
+  education: Education[];
   awards: Award[];
   research: Research[];
 }

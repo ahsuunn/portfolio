@@ -2,7 +2,9 @@ import type { Skills } from '../lib/types';
 import {
   SiHtml5, SiJavascript, SiTypescript, SiNextdotjs, SiTailwindcss,
   SiReact, SiFlutter, SiFirebase, SiNodedotjs, SiPrisma,
-  SiPostgresql, SiRedis, SiDocker, SiPython, SiGit, SiCplusplus,
+  SiPostgresql, SiMysql, SiRedis, SiDocker, SiPython, SiGit, SiCplusplus,
+  SiPytorch, SiHuggingface, SiOnnx, SiHono, SiDrizzle, SiDart,
+  SiApachekafka, SiReactquery,
 } from 'react-icons/si';
 import { DiJava } from 'react-icons/di';
 import type { IconType } from 'react-icons';
@@ -22,13 +24,23 @@ const hardSkillIcons: Record<string, IconType> = {
   'Firebase': SiFirebase,
   'Node.js / Express': SiNodedotjs,
   'Prisma ORM': SiPrisma,
+  'Drizzle ORM': SiDrizzle,
+  'Hono.js': SiHono,
+  'PostgreSQL': SiPostgresql,
+  'MySQL': SiMysql,
   'PostgreSQL / MySQL': SiPostgresql,
   'Redis': SiRedis,
   'Docker': SiDocker,
   'Python': SiPython,
+  'Dart': SiDart,
   'Java': DiJava,
   'C / C++': SiCplusplus,
   'Git': SiGit,
+  'TanStack Query': SiReactquery,
+  'Apache Kafka': SiApachekafka,
+  'PyTorch': SiPytorch,
+  'Hugging Face': SiHuggingface,
+  'ONNX Runtime': SiOnnx,
 };
 
 export default function SkillsSection({ skills }: Props) {

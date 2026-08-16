@@ -6,19 +6,17 @@ import "./globals.css";
 const schibstedGrotesk = Schibsted_Grotesk({
   variable: "--font-schibsted",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
 });
 
 const geist = Geist({
   variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-})
+});
 
 export const metadata: Metadata = {
   title: "Ahsan Malik Al Farisi - Portfolio",
   description:
-    "Software Engineering student at ITB. Frontend & mobile developer specializing in Next.js and Flutter.",
+    "Software Engineering student at ITB and incoming Global FinTech Scholar at Chung-Ang University (South Korea). Full-stack developer with experience across enterprise systems, AI/NLP, and mobile apps.",
 };
 
 export default function RootLayout({
