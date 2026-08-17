@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useMemo, useState, useEffect, useCallback } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import ExperienceSection from './ExperienceSection';
@@ -9,7 +8,6 @@ import SkillsSection from './SkillsSection';
 import EducationSection from './EducationSection';
 import AwardsSection from './AwardsSection';
 import ResearchSection from './ResearchSection';
-import ScrollReveal from './ScrollReveal';
 import type {
   Award,
   Education,
@@ -158,7 +156,7 @@ export default function SectionsTabs({ jobs, projects, skills, education, awards
                   aria-selected={selected}
                   aria-controls={`panel-${tabId}`}
                   onClick={() => handleTabChange(tabId)}
-                  className={`relative shrink-0 px-2.5 py-2.5 text-sm tracking-tight transition-colors duration-75 ${
+                  className={`relative shrink-0 px-2.5 py-2.5 text-sm tracking-tight transition-none ${
                     selected
                       ? 'text-black dark:text-white font-medium'
                       : 'text-gray-500 dark:text-[#8E8E8E] hover:text-black dark:hover:text-white'
@@ -187,11 +185,7 @@ export default function SectionsTabs({ jobs, projects, skills, education, awards
                   </span>
 
                   {selected && (
-                    <motion.div
-                      layoutId="activeTabUnderline"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-black dark:bg-white"
-                      transition={{ duration: 0.1, ease: 'easeOut' }}
-                    />
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-black dark:bg-white" />
                   )}
                 </button>
               );

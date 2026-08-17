@@ -149,7 +149,7 @@ export default function CommandPalette() {
       subtitle: 'themalique1910@gmail.com',
       category: 'Actions',
       icon: Copy,
-      shortcut: 'CE',
+      shortcut: isMac ? '⌥C' : 'Alt C',
       perform: copyEmail,
     },
     {
@@ -158,6 +158,7 @@ export default function CommandPalette() {
       subtitle: 'Open default email client',
       category: 'Actions',
       icon: Mail,
+      shortcut: isMac ? '⌥E' : 'Alt E',
       perform: () => {
         window.location.href = 'mailto:themalique1910@gmail.com';
         setIsOpen(false);
@@ -169,6 +170,7 @@ export default function CommandPalette() {
       subtitle: 'github.com/ahsuunn',
       category: 'Social',
       icon: Github,
+      shortcut: isMac ? '⌥G' : 'Alt G',
       perform: () => openLink('https://github.com/ahsuunn'),
     },
     {
@@ -177,6 +179,7 @@ export default function CommandPalette() {
       subtitle: 'linkedin.com/in/ahsan-malik-al-farisi',
       category: 'Social',
       icon: Linkedin,
+      shortcut: isMac ? '⌥L' : 'Alt L',
       perform: () => openLink('https://linkedin.com/in/ahsan-malik-al-farisi'),
     },
     {
@@ -185,10 +188,39 @@ export default function CommandPalette() {
       subtitle: 'Toggle theme preference',
       category: 'Preferences',
       icon: theme === 'dark' ? Sun : Moon,
-      shortcut: 'T',
+      shortcut: isMac ? '⌥T' : 'Alt T',
       perform: toggleTheme,
     },
-  ], [copyEmail, navigateToSection, openLink, theme, toggleTheme]);
+  ], [copyEmail, isMac, navigateToSection, openLink, theme, toggleTheme]);
+
+  // Global hotkey listeners for non-navigation palette actions
+  useEffect(() => {
+    const handleGlobalHotkeys = (e: KeyboardEvent) => {
+      if (e.altKey && !e.ctrlKey && !e.metaKey) {
+        const key = e.key.toLowerCase();
+        if (key === 'c') {
+          e.preventDefault();
+          copyEmail();
+        } else if (key === 'e') {
+          e.preventDefault();
+          window.location.href = 'mailto:themalique1910@gmail.com';
+          setIsOpen(false);
+        } else if (key === 'g') {
+          e.preventDefault();
+          openLink('https://github.com/ahsuunn');
+        } else if (key === 'l') {
+          e.preventDefault();
+          openLink('https://linkedin.com/in/ahsan-malik-al-farisi');
+        } else if (key === 't') {
+          e.preventDefault();
+          toggleTheme();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalHotkeys);
+    return () => window.removeEventListener('keydown', handleGlobalHotkeys);
+  }, [copyEmail, openLink, toggleTheme]);
 
   const filteredCommands = useMemo(() => {
     if (!search.trim()) return allCommands;
@@ -327,9 +359,9 @@ export default function CommandPalette() {
           />
 
           {/* Modal Card (wider, sleek height, translucent without blur, no scale animation) */}
-          <div className="relative w-full max-w-2xl sm:max-w-3xl overflow-hidden rounded-xl border border-black/15 dark:border-white/20 bg-white/95 dark:bg-[#121212]/95 shadow-2xl flex flex-col max-h-[62vh]">
+          <div className="relative w-full max-w-2xl sm:max-w-3xl overflow-hidden rounded-md border border-black/10 dark:border-white/10 bg-white/98 dark:bg-[#121212]/98 shadow-2xl flex flex-col max-h-[62vh]">
             {/* Search Bar */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-black/10 dark:border-white/10">
+            <div className="flex items-center gap-3 px-4 py-4 border-b border-black/5 dark:border-white/20">
               <Search size={15} className="text-gray-400 dark:text-gray-500 shrink-0" />
               <input
                 ref={inputRef}
@@ -339,9 +371,6 @@ export default function CommandPalette() {
                 placeholder="Type a command or search..."
                 className="flex-1 bg-transparent text-sm text-black dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none"
               />
-              <kbd className="hidden sm:inline-flex items-center px-1 py-[1px] text-[10px] text-gray-500 dark:text-gray-400 rounded border border-black/15 dark:border-white/20 font-normal">
-                ESC
-              </kbd>
             </div>
 
             {/* Command List */}
@@ -417,14 +446,14 @@ export default function CommandPalette() {
             </div>
 
             {/* Footer Key Hints (Moved to bottom right, tight padding) */}
-            <div className="px-3.5 py-1.5 border-t border-black/10 dark:border-white/10 flex items-center justify-end text-[10px] text-gray-500 dark:text-gray-400 gap-3">
+            <div className="px-3.5 py-2 border-t border-black/10 dark:border-white/10 flex items-center justify-end text-[10px] text-gray-500 dark:text-gray-400 gap-3">
               <span className="flex items-center gap-1">
-                <kbd className="text-[9px] px-1 py-[1px] rounded border border-black/15 dark:border-white/20 font-normal leading-tight">↑</kbd>
-                <kbd className="text-[9px] px-1 py-[1px] rounded border border-black/15 dark:border-white/20 font-normal leading-tight">↓</kbd>
+                <kbd className="text-xs px-1 py-0.5 rounded border border-black/15 dark:border-white/20 font-normal leading-tight">↑</kbd>
+                <kbd className="text-xs px-1 py-0.5 rounded border border-black/15 dark:border-white/20 font-normal leading-tight">↓</kbd>
                 <span>Navigate</span>
               </span>
               <span className="flex items-center gap-1">
-                <kbd className="text-[9px] px-1 py-[1px] rounded border border-black/15 dark:border-white/20 font-normal leading-tight">↵</kbd>
+                <kbd className="text-xs px-1 py-0.5 rounded border border-black/15 dark:border-white/20 font-normal leading-tight">↵</kbd>
                 <span>Select</span>
               </span>
             </div>
